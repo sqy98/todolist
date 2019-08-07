@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 创建普通的html表单 -->
+        <form id="form">
+            <input type="text" name="username">
+            <input type="password" name="password" >
+            <input type="button" id="btn" value="提交">
+        </form>
+        <script>
+         //获取表单
+        var from = document.querySelector("#from");
+        //获取按钮
+        var btn = document.querySelector("#btn");
+        btn.onclick=function(){
+            //将普通的html表单对象 表单序列化
+            var formData = new formData(from);
+            //创建ajax对象
+            var xhr = new XMLHttpRequest();
+            //对ajax进行配置
+            xhr.open('post','http:127.0.0.1:3000/formData');
+            //发送ajax对象
+            xhr.send(formData);
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" name="usernamme">
+        <input type="password" name="pwd">
+        <input type="submit" value="提交">
+
+    </form>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+    $('#form').on('submit',function(){
+        var params=$('#form').serializeArray();
+        console.log(params);
+        return false
+        
+    })
+    </script>
+</body>
+</html>

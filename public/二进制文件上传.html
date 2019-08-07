@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="file">
+    <script>
+        var file = document.querySelector('#file')
+        file.onchange = function () {
+            var formData = new FormData();
+            //获取用户选择的文件
+            formData.append('attrName', this.files[0])
+            //创建ajax对象
+            var xhr =new XMLHttpRequest();
+            //对ajax进行配置
+            xhr.open('post','http://127.0.0.1:3000/formData')
+            //发送ajax请求
+            xhr.send(formData);
+            //监听
+            xhr.onload=function(){
+                if(xhr.status==200){
+                    // 将服务器端返回的数据显示在控制台中
+                    var result=JSON.parse(xhr.responseText);
+                    console.log(result);
+                    
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
